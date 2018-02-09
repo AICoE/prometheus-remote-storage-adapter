@@ -1,0 +1,19 @@
+sudo: required
+
+language: go
+go:
+  - 1.9.2
+
+services:
+  - docker
+
+install:
+  - go build github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
+
+script:
+  - make build
+
+after_success:
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker build -t aicoe/prometheus-remote-storage-adapter .
+  - docker push aicoe/prometheus-remote-storage-adapter
