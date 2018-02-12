@@ -4,7 +4,7 @@ COMMIT_ID := $(shell git log --pretty=format:'%h' -n 1)
 GO_FLAGS := -a -ldflags "-w -X main.buildDate=$(BUILD_DATE) -X main.commitId=$(COMMIT_ID)"
 
 buildstatic:
-	go build $(GO_FLAGS) github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
+	GOOS=linux GOARCH=amd64 go build $(GO_FLAGS) github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
 
 docker: buildstatic
 	@echo "Updating the local Docker image"
