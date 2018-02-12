@@ -1,4 +1,5 @@
-FROM scratch
+#FROM scratch
+FROM alpine
 
 COPY ./remote_storage_adapter /remote_storage_adapter
 
