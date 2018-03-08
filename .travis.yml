@@ -11,7 +11,7 @@ install:
   - go get github.com/prometheus/prometheus/documentation/examples/remote_storage/remote_storage_adapter
 
 script:
-  - make buildstatic
+  - make remote_storage_adapter
 
 after_success:
   - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
