@@ -1,5 +1,5 @@
 #FROM scratch
-FROM alpine
+FROM centos:centos7
 
 COPY ./remote_storage_adapter /remote_storage_adapter
 
