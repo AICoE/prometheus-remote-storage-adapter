@@ -3,6 +3,9 @@ BUILD_DATE := $(shell date -u +%Y-%m-%dT%H-%M-%SZ)
 COMMIT_ID := $(shell git log --pretty=format:'%h' -n 1)
 GO_FLAGS := -a -ldflags "-w -X main.buildDate=$(BUILD_DATE) -X main.commitId=$(COMMIT_ID)"
 
+.PHONY:
+all: remote_storage_adapter
+
 clean:
 	rm remote_storage_adapter
 
